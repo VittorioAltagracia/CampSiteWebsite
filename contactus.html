@@ -34,18 +34,27 @@
     <header class="jumbotron jumbotron-fluid">
       <div class="container">
         <div class="row">
+          <div class="col-4 col-sm-3 col-md-2 align-self-center">
+            <img src="/img/logo.png" class="img-fluid" />
+          </div>
           <div class="col">
             <h1>NuCamp</h1>
             <h2>a better way to camp</h2>
           </div>
+          <!-- col is the same as col-xs-12 -->
         </div>
       </div>
     </header>
 
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
       <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <a href="index.html"
+            ><img src="img/logo.png" height="30" width="30" />
+          </a>
+        </a>
         <button
-          class="navbar-toggler ml-auto"
+          class="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#nucampNavbar"
@@ -101,6 +110,7 @@
           </address>
         </div>
         <div class="col">
+          <!-- use role="button" to change the default cursor to pointer.  -->
           <a role="button" class="btn btn-link" href="tel:+12065551234"
             ><i class="fa fa-phone"></i> 1-206-555-1234</a
           ><br />
@@ -125,6 +135,7 @@
             <!-- FOR attribute must match an ID of an element to work, doesn't matter what name we give it 
             Names and IDs are typically the same but there are exceptions
             -->
+            <!-- Bootstrap applies display: block and width: 100% to almost all our form controls, -->
             <div class="form-group row">
               <label for="firstName" class="col-md-2 col-form-label"
                 >First Name</label
@@ -189,6 +200,7 @@
             </div>
             <div class="form-group row">
               <!-- offset class moves 2 columns to the right on md+ vwp(in this case) -->
+              <!-- Group checkboxes or radios on the same horizontal row by adding .form-check-inline to any .form-check.-->
               <div class="col offset-md-2">
                 May we contact you?
                 <div class="form-check form-check-inline">
