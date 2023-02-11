@@ -58,7 +58,16 @@ xl >= 1200
             <h1>NuCamp</h1>
             <h2>a better way to camp</h2>
           </div>
-          <!-- col is the same as col-xs-12 -->
+          <div class="col col-md-4 col-xl-2 mt-4">
+            <!-- be sure to specify an id of a corresponding element having '#' sign
+            the form element itself, must not include # in its ID -->
+            <a
+              href="#reserveForm"
+              role="button"
+              class="btn btn-lg btn-info text-nowrap"
+              >Reserve Campsite</a
+            >
+          </div>
         </div>
       </div>
     </header>
@@ -132,11 +141,21 @@ xl >= 1200
           <h2>Featured Campsites</h2>
         </div>
         <div class="col">
-          <h3>React Lake Campground</h3>
-          <p class="d-none d-sm-block">
-            Nestled in the foothills of the Chrome Mountains, this campground on
-            the shores of the pristine React Lake is a favorite for fly fishers.
-          </p>
+          <div class="media">
+            <div class="media-body align-self-center">
+              <h3>React Lake Campground</h3>
+              <p class="d-none d-sm-block">
+                Nestled in the foothills of the Chrome Mountains, this
+                campground on the shores of the pristine React Lake is a
+                favorite for fly fishers.
+              </p>
+            </div>
+            <img
+              src="img/react-lake-thumb.jpg"
+              class="img-thumbnail d-flex ml-3"
+              alt="image of a React lake on a sunny day"
+            />
+          </div>
         </div>
       </div>
 
@@ -158,6 +177,66 @@ xl >= 1200
                 Bootstrap Outfitters supplies you with gear you need at prices
                 you can't beat.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-content">
+        <div class="col col-md-10 col-lg-8 mx-auto">
+          <div class="card">
+            <h3 class="card-header bg-info text-white">Reserve a Campsite</h3>
+            <div class="card-body">
+              <form id="reserveForm">
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                    <label class="col-form-label" for="numCampers"
+                      >Number of Campers</label
+                    >
+                  </div>
+                  <div class="col-xs-auto col-sm-8">
+                    <select
+                      class="form-control"
+                      name="numCampers"
+                      id="numCampers"
+                    >
+                      <option selected>Select...</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- Date starts here! -->
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                    <label class="col-form-label" for="date">Date</label>
+                  </div>
+                  <div class="col-xs-auto col-sm-8">
+                    <div>
+                      <input
+                        type="text"
+                        onfocus="(this.type='date')"
+                        onblur="(this.type='text')"
+                        class="form-control"
+                        id="date"
+                        name="date"
+                        placeholder="Date"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col">
+                    <button class="btn btn-primary" type="submit">
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
