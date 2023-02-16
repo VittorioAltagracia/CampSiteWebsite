@@ -48,39 +48,8 @@ xl >= 1200
 -->
 
   <body>
-    <header class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <div class="row">
-          <div class="col-4 col-sm-3 col-md-2 align-self-center">
-            <img src="/img/logo.png" class="img-fluid" />
-          </div>
-          <div class="col">
-            <h1>NuCamp</h1>
-            <h2>a better way to camp</h2>
-          </div>
-          <div class="col col-md-4 col-xl-2 mt-4">
-            <!-- be sure to specify an id of a corresponding element having '#' sign
-            the form element itself, must not include # in its ID -->
-            <!-- data-html=true allows us to write html inside title -->
-            <!-- jQuery at the bottom of the doc, enables tooltips on this page -->
-            <a
-              href="#reserveForm"
-              role="button"
-              class="btn btn-lg btn-info text-nowrap"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="Or call us at <br /><strong>1-206-555-1234</strong>"
-            >
-              Reserve Campsite</a
-            >
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-      <div class="container">
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+      <div class="container" id="firstContainer">
         <a class="navbar-brand" href="#">
           <img src="img/logo.png" height="30" width="30" />
         </a>
@@ -117,25 +86,61 @@ xl >= 1200
               >
             </li>
           </ul>
-          <!-- Code to implement login button with fa -->
-          <span class="navbar-text ml-auto">
-            <a role="button" data-toggle="modal" data-target="#loginModal">
-              <i class="fa fa-sign-in"></i> Login
-            </a>
-          </span>
+            
+          </div>
         </div>
       </div>
     </nav>
+
+    <header class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-4 col-sm-3 col-md-2 align-self-center">
+            <img src="/img/logo.png" class="img-fluid" />
+          </div>
+          <div class="col align-items-center">
+            <h1>NuCamp</h1>
+            <h2>a better way to camp</h2>
+          </div>
+          <span class="navbar-text">
+            <a
+              role="button"
+              data-toggle="modal"
+              data-target="#loginModal"
+              class="btn btn-primary btn-lg login"
+            >
+              <i class="fa fa-sign-in"></i> Login
+            </a>
+          </span>
+          <div class="col col-md-3 col-xl-1 ml-4">
+              
+            <a
+              href="#reserveForm"
+              role="button"
+              class="btn btn-lg btn-info text-nowrap reserve mt-2"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              data-html="true"
+              title="Or call us at <br /><strong>1-206-555-1234</strong>"
+            >
+              Reserve Campsite</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
     <!-- Modal window for login -->
     <!-- sr-only means for screen reading devices only -->
     <div id="loginModal" class="modal fade" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">Login</h3>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
+          <div class="col">
+            <div class="modal-header">
+              <h3 class="modal-title">Login</h3>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
             <div class="modal-body">
               <div class="container-fluid">
                 <form>
@@ -169,7 +174,18 @@ xl >= 1200
                       </div>
                     </div>
                   </div>
-                  <div class="form-row">
+                  <div class="form-row mt-3">
+                    <label for="forgotPassword"> Forgot password? </label>
+
+                    <input
+                      type="email"
+                      class="form-control form-control-sm"
+                      id="forgotPassword"
+                      placeholder="Input your recovery email"
+                    />
+                    <span class="hidden message-password mt-1">Message</span>
+                  </div>
+                  <div class="form-row mt-3">
                     <button
                       type="button"
                       class="btn btn-secondary btn-sm ml-auto"
@@ -462,5 +478,6 @@ xl >= 1200
         $('[data-toggle="tooltip"]').tooltip();
       });
     </script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>

@@ -22,8 +22,9 @@ header h2 {
 
 .jumbotron {
   margin: 0;
+  margin-top: 90px;
   padding: 30px;
-  background-image: linear-gradient(to right, #5637dd, #3046c5, #60106b);
+  background-image: linear-gradient(to right, #4a3a90, #5f74e8, #c552d4);
   color: white;
 }
 
@@ -34,7 +35,8 @@ header h2 {
 }
 
 .navbar {
-  background-color: #901cad;
+  background-color: #bd6dbd;
+  padding: 25px;
 }
 
 a,
@@ -48,4 +50,14 @@ a:hover {
 }
 .carousel {
   border: solid #5637dd;
+
+  margin-top: 2.5rem;
+}
+/* Selecting by ID */
+#firstContainer {
+  margin-right: 0;
+}
+
+.hidden {
+  display: none;
 }
