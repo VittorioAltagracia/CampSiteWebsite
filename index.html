@@ -64,13 +64,10 @@ xl >= 1200
             <!-- data-html=true allows us to write html inside title -->
             <!-- jQuery at the bottom of the doc, enables tooltips on this page -->
             <a
-              href="#reserveForm"
               role="button"
               class="btn btn-lg btn-info text-nowrap"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              data-html="true"
-              title="Or call us at <br /><strong>1-206-555-1234</strong>"
+              data-toggle="modal"
+              data-target="#reserveModal"
             >
               Reserve Campsite</a
             >
@@ -78,6 +75,91 @@ xl >= 1200
         </div>
       </div>
     </header>
+    <!-- reserve modal -->
+
+    <div id="reserveModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-info text-white">
+            <h3 class="modal-title">Reserve a Campsite</h3>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+            <!-- body starts here -->
+            <div class="modal-body">
+              <div class="container-fluid">
+                <form>
+                  <div class="form-group row">
+                    <div class="col-sm-4">
+                      <label class="col-form-label" for="numCampers"
+                        >Number of Campers</label
+                      >
+                    </div>
+                    <div class="col-xs-auto col-sm-8">
+                      <select
+                        class="form-control"
+                        name="numCampers"
+                        id="numCampers"
+                      >
+                        <option selected>Select...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Date starts here! -->
+                  <div class="form-group row">
+                    <div class="col-sm-4">
+                      <label class="col-form-label" for="date">Date</label>
+                    </div>
+                    <div class="col-xs-auto col-sm-8">
+                      <div>
+                        <input
+                          type="text"
+                          onfocus="(this.type='date')"
+                          onblur="(this.type='text')"
+                          class="form-control"
+                          id="date"
+                          name="date"
+                          placeholder="Date"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Types of campsites - radio buttons -->
+                  <div class="form-group row">
+                      <label class="col-sm-4 col-form-label">Campsite Type</label>
+                    <div class="col-2 btn-group btn-group-toggle" data-toggle="buttons">
+                      <label class="btn btn-success">
+                        <input type="radio" name="siteType" id="siteTent" value="tent" autocomplete="off" checked>Tent
+                      </label>
+                      <label class="btn btn-primary">
+                        <input type="radio" name="siteType" id="siteRV" value="RV" autocomplete="off">RV
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Action buttons -->
+                  <div class="form-group row">
+                    <div class="col">
+                      <button class="btn btn-secondary" data-dismiss="modal">
+                        Cancel
+                      </button>
+                      <button class="btn btn-primary" type="submit">
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
 
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
       <div class="container">
@@ -269,8 +351,11 @@ xl >= 1200
               <span class="carousel-control-next-icon"></span>
               <span class="sr-only">Next</span>
             </a>
-
             <!-- carousel control icon for creating controls! -->
+              <button class="btn btn-danger btn-sm" id="carouselButton">
+                <i class="fa fa-pause"></i>
+              </button>
+          
           </div>
         </div>
       </div>
@@ -343,66 +428,7 @@ xl >= 1200
         </div>
       </div>
 
-      <div class="row row-content">
-        <div class="col col-md-10 col-lg-8 mx-auto">
-          <div class="card">
-            <h3 class="card-header bg-info text-white">Reserve a Campsite</h3>
-            <div class="card-body">
-              <form id="reserveForm">
-                <div class="form-group row">
-                  <div class="col-sm-4">
-                    <label class="col-form-label" for="numCampers"
-                      >Number of Campers</label
-                    >
-                  </div>
-                  <div class="col-xs-auto col-sm-8">
-                    <select
-                      class="form-control"
-                      name="numCampers"
-                      id="numCampers"
-                    >
-                      <option selected>Select...</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select>
-                  </div>
-                </div>
-                <!-- Date starts here! -->
-                <div class="form-group row">
-                  <div class="col-sm-4">
-                    <label class="col-form-label" for="date">Date</label>
-                  </div>
-                  <div class="col-xs-auto col-sm-8">
-                    <div>
-                      <input
-                        type="text"
-                        onfocus="(this.type='date')"
-                        onblur="(this.type='text')"
-                        class="form-control"
-                        id="date"
-                        name="date"
-                        placeholder="Date"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col">
-                    <button class="btn btn-primary" type="submit">
-                      Search
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      
 
     <footer class="site-footer">
       <div class="container">
@@ -456,11 +482,26 @@ xl >= 1200
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Use jQuery to enable tooltips on the page -->
+
     <script>
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
+      $(function() {
+        $('.carousel').carousel( {inverval: 2000});
+        $("#carouselButton").click(function() {
+            if ($("#carouselButton").children("i").hasClass("fa-pause")) {
+                $(".carousel").carousel('pause');
+                $('#carouselButton').children('i').removeClass('fa-pause');
+                $('#carouselButton').children('i').addClass('fa-play');
+            } else {
+              $(".carousel").carousel('cycle');
+              $('#carouselButton').children('i').removeClass('fa-play');
+              $('#carouselButton').children('i').addClass('fa-pause');
+
+            }
+        });
+        
       });
     </script>
+
+
   </body>
 </html>
